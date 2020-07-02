@@ -36,8 +36,6 @@
     #pokedex main .pokemonImgCtn .row {
       padding: .5rem 1rem;
       height: 100%; }
-      #pokedex main .pokemonImgCtn .row .col {
-        border: 1px solid black; }
       #pokedex main .pokemonImgCtn .row .col:first-child {
         display: flex;
         flex-direction: column;
@@ -45,6 +43,8 @@
         justify-content: center; }
         #pokedex main .pokemonImgCtn .row .col:first-child > div {
           border: 1px solid red;
+          padding-top: 0;
+          margin-top: 0;
           height: 50px;
           width: 100%; }
           #pokedex main .pokemonImgCtn .row .col:first-child > div:first-child {
@@ -80,7 +80,7 @@
       text-align: center;
       margin-bottom: 1rem; }
     #pokedex main .nameAndMovesCtn li {
-      font-size: 1rem;
+      font-size: 1.2rem;
       list-style-type: none;
       font-family: 'BenchNine', sans-serif; }
   #pokedex main .searchCtn {

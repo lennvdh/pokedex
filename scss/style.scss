@@ -49,10 +49,6 @@
         padding: .5rem 1rem;
         height: 100%;
 
-        .col {
-          border: 1px solid black;
-        }
-
         .col:first-child {
           display: flex;
           flex-direction: column;
@@ -61,6 +57,8 @@
 
           &>div {
             border: 1px solid red;
+            padding-top: 0;
+            margin-top: 0;
             height: 50px;
             width: 100%;
 
@@ -115,7 +113,7 @@
       }
 
       li {
-        font-size: 1rem;
+        font-size: 1.2rem;
         list-style-type: none;
         font-family: 'BenchNine', sans-serif;
       }
