@@ -37,21 +37,54 @@
     }
 
     .pokemonImgCtn {
-      height: 100px;
-      width: 200px;
+      height: 140px;
+      width: 255px;
+      border-radius: 16px;
       background: navajowhite;
       position: absolute;
-      top: 217px;
-      left: 198px;
+      top: 197px;
+      left: 170px;
+
+      .row {
+        padding: .5rem 1rem;
+        height: 100%;
+
+        .col {
+          border: 1px solid black;
+        }
+
+        .col:first-child {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          &>div {
+            border: 1px solid red;
+            height: 50px;
+            width: 100%;
+
+            &:first-child {
+              margin-bottom: .3rem;
+            }
+          }
+        }
+
+        .types p {
+          font-family: 'BenchNine', sans-serif;
+        }
+      }
     }
 
-    .evolutionBtnCtn {
+    .idBtnCtn {
       position: absolute;
-      top: 432px;
-      left: 220px;
+      top: 428px;
+      left: 212px;
 
-      .evoBtnStyle {
-        width: 50px;
+      .idBtnStyle {
+        padding: .2rem;
+        font-size: 1.2rem;
+        width: 60px;
         margin-right: 11px;
       }
     }
@@ -89,12 +122,40 @@
     }
 
     .searchCtn {
+      padding: 1.2rem 0;
+      background: #c00c0c;
+      width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
       top: 320px;
       left: 548px;
 
       input {
+        padding-left: .5rem;
         height: 35px;
+        width: 200px;
+        margin-right: .5rem;
+        outline: none;
+      }
+
+      button {
+        width: 50px;
+      }
+    }
+
+    .evolutionImgCtn {
+      position: absolute;
+      top: 494px;
+      left: 621px;
+      display: flex;
+
+      &>div {
+        height: 30px;
+        width: 40px;
+        background: greenyellow;
+        margin-right: 76px;
       }
     }
   }

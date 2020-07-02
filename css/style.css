@@ -26,18 +26,39 @@
   #pokedex main .pokedexCtn {
     position: relative; }
   #pokedex main .pokemonImgCtn {
-    height: 100px;
-    width: 200px;
+    height: 140px;
+    width: 255px;
+    border-radius: 16px;
     background: navajowhite;
     position: absolute;
-    top: 217px;
-    left: 198px; }
-  #pokedex main .evolutionBtnCtn {
+    top: 197px;
+    left: 170px; }
+    #pokedex main .pokemonImgCtn .row {
+      padding: .5rem 1rem;
+      height: 100%; }
+      #pokedex main .pokemonImgCtn .row .col {
+        border: 1px solid black; }
+      #pokedex main .pokemonImgCtn .row .col:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        #pokedex main .pokemonImgCtn .row .col:first-child > div {
+          border: 1px solid red;
+          height: 50px;
+          width: 100%; }
+          #pokedex main .pokemonImgCtn .row .col:first-child > div:first-child {
+            margin-bottom: .3rem; }
+      #pokedex main .pokemonImgCtn .row .types p {
+        font-family: 'BenchNine', sans-serif; }
+  #pokedex main .idBtnCtn {
     position: absolute;
-    top: 432px;
-    left: 220px; }
-    #pokedex main .evolutionBtnCtn .evoBtnStyle {
-      width: 50px;
+    top: 428px;
+    left: 212px; }
+    #pokedex main .idBtnCtn .idBtnStyle {
+      padding: .2rem;
+      font-size: 1.2rem;
+      width: 60px;
       margin-right: 11px; }
   #pokedex main .idScreenCtn {
     width: 60px;
@@ -63,11 +84,33 @@
       list-style-type: none;
       font-family: 'BenchNine', sans-serif; }
   #pokedex main .searchCtn {
+    padding: 1.2rem 0;
+    background: #c00c0c;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 320px;
     left: 548px; }
     #pokedex main .searchCtn input {
-      height: 35px; }
+      padding-left: .5rem;
+      height: 35px;
+      width: 200px;
+      margin-right: .5rem;
+      outline: none; }
+    #pokedex main .searchCtn button {
+      width: 50px; }
+  #pokedex main .evolutionImgCtn {
+    position: absolute;
+    top: 494px;
+    left: 621px;
+    display: flex; }
+    #pokedex main .evolutionImgCtn > div {
+      height: 30px;
+      width: 40px;
+      background: greenyellow;
+      margin-right: 76px; }
   #pokedex footer {
     position: absolute;
     bottom: 0;
