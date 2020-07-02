@@ -8,8 +8,32 @@
   font-family: 'Orbitron', sans-serif;
   font-size: 1rem;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 
   header {
-    
+    height: 30vh;
+    background: url("../img/header-bg.jpg") center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .headerH1 {
+      background: rgba(255, 255, 255, .85);
+      border-radius: 5px;
+
+      h1 {
+        font-size: 3rem;
+        color: #c00c0c;
+        padding: 1rem 2rem;
+      }
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
   }
 }
