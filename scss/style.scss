@@ -45,12 +45,12 @@
       left: 198px;
     }
 
-    .evolutionBtnCtn {
+    .idBtnCtn {
       position: absolute;
       top: 432px;
       left: 220px;
 
-      .evoBtnStyle {
+      .idBtnStyle {
         width: 50px;
         margin-right: 11px;
       }
@@ -89,12 +89,25 @@
     }
 
     .searchCtn {
+      padding: 1.2rem 0;
+      background: #c00c0c;
+      width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
       top: 320px;
       left: 548px;
 
       input {
+        padding-left: .5rem;
         height: 35px;
+        width: 200px;
+        margin-right: .5rem;
+        outline: none;
+      }
+      button {
+        width: 50px;
       }
     }
   }
