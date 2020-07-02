@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+#pokedex {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  overflow-x: hidden; }
+
+/*# sourceMappingURL=style.css.map */
