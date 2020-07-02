@@ -23,6 +23,44 @@
         font-size: 3rem;
         color: #c00c0c;
         padding: 1rem 2rem; }
+  #pokedex main .pokedexCtn {
+    position: relative; }
+  #pokedex main .pokemonImgCtn {
+    height: 100px;
+    width: 200px;
+    background: navajowhite;
+    position: absolute;
+    top: 217px;
+    left: 198px; }
+  #pokedex main .evolutionBtnCtn {
+    position: absolute;
+    top: 432px;
+    left: 220px; }
+    #pokedex main .evolutionBtnCtn .evoBtnStyle {
+      width: 50px;
+      margin-right: 11px; }
+  #pokedex main .idScreenCtn {
+    width: 60px;
+    text-align: center;
+    position: absolute;
+    top: 485px;
+    left: 250px; }
+  #pokedex main .nameAndMovesCtn {
+    background: #adff2f;
+    box-shadow: 0 0 3px 3px #c1ff62;
+    width: 300px;
+    height: 136px;
+    border-radius: 5px;
+    padding: 1rem;
+    position: absolute;
+    top: 165px;
+    left: 548px; }
+    #pokedex main .nameAndMovesCtn h5 {
+      text-align: center;
+      margin-bottom: 1rem; }
+    #pokedex main .nameAndMovesCtn li {
+      font-size: .8rem;
+      list-style-type: none; }
   #pokedex footer {
     position: absolute;
     bottom: 0;
