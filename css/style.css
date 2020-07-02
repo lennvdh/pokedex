@@ -62,6 +62,12 @@
       font-size: 1rem;
       list-style-type: none;
       font-family: 'BenchNine', sans-serif; }
+  #pokedex main .searchCtn {
+    position: absolute;
+    top: 320px;
+    left: 548px; }
+    #pokedex main .searchCtn input {
+      height: 35px; }
   #pokedex footer {
     position: absolute;
     bottom: 0;

@@ -89,7 +89,13 @@
     }
 
     .searchCtn {
-      
+      position: absolute;
+      top: 320px;
+      left: 548px;
+
+      input {
+        height: 35px;
+      }
     }
   }
 
