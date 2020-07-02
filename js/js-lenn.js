@@ -10,8 +10,5 @@ run.addEventListener('click', (e)=>{
             console.log(data.id);
             console.log(data.types)
             console.log(data.moves);
-            for(let i = 0; i<data.moves; i++){
-                console.log(data.moves[i]);
-            }
         });
 })
