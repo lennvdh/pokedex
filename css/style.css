@@ -59,9 +59,9 @@
       text-align: center;
       margin-bottom: 1rem; }
     #pokedex main .nameAndMovesCtn li {
-      font-size: .8rem;
+      font-size: 1rem;
       list-style-type: none;
-      font-family: 'Orbitron', sans-serif; }
+      font-family: 'BenchNine', sans-serif; }
   #pokedex footer {
     position: absolute;
     bottom: 0;
