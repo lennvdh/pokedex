@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/2e0a884014.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -21,10 +22,25 @@
     <main class="container">
         <div class="pokedexCtn">
             <img src="img/pokedexpaint.png" alt="pokedex">
-            <div class="pokemonImgCtn"></div>
+            <div class="pokemonImgCtn">
+                <div class="row">
+                    <div class="col">
+                        <div class="pokemonFrontImg">front</div>
+                        <div class="pokemonBackImg">back</div>
+                    </div>
+                    <div class="col">
+                        <h5>Type:</h5>
+                        <div class="types">
+                            <p>type1</p>
+                            <p>type2</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <div class="idBtnCtn">
-                <button title="Previous ID" class="btn btn-success idBtnStyle"></button>
-                <button title="Next ID" class="btn btn-warning idBtnStyle"></button>
+                <button title="Previous ID" class="btn btn-success idBtnStyle"><i class="fas fa-backward"></i></button>
+                <button title="Next ID" class="btn btn-warning idBtnStyle"><i class="fas fa-forward"></i></button>
             </div>
             <div class="idScreenCtn">000</div>
             <div class="nameAndMovesCtn">
@@ -44,6 +60,10 @@
                 <input id="pokeinput" type="text" name="search" placeholder="Name/ID">
                 <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
             </form>
+            <div class="evolutionImgCtn">
+                <div class="prevEvo"></div>
+                <div class="nextEvo"></div>
+            </div>
         </div>
     </main>
     <footer>
@@ -60,7 +80,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/2e0a884014.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
