@@ -32,25 +32,21 @@
     background: navajowhite;
     position: absolute;
     top: 197px;
-    left: 170px; }
-    #pokedex main .pokemonImgCtn .row {
-      padding: .5rem 1rem;
-      height: 100%; }
-      #pokedex main .pokemonImgCtn .row .col:first-child {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; }
-        #pokedex main .pokemonImgCtn .row .col:first-child > div {
-          border: 1px solid red;
-          padding-top: 0;
-          margin-top: 0;
-          height: 50px;
-          width: 100%; }
-          #pokedex main .pokemonImgCtn .row .col:first-child > div:first-child {
-            margin-bottom: .3rem; }
-      #pokedex main .pokemonImgCtn .row .types p {
-        font-family: 'BenchNine', sans-serif; }
+    left: 170px;
+    display: grid;
+    grid-template-rows: 4fr 1fr; }
+    #pokedex main .pokemonImgCtn .row:first-child {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); }
+    #pokedex main .pokemonImgCtn .row:nth-child(2) {
+      display: flex;
+      padding: .5rem 1.2rem 0 1.2rem; }
+      #pokedex main .pokemonImgCtn .row:nth-child(2) p {
+        margin-right: .3rem;
+        line-height: 1rem;
+        margin-bottom: 0; }
+      #pokedex main .pokemonImgCtn .row:nth-child(2) > div {
+        display: flex; }
   #pokedex main .idBtnCtn {
     position: absolute;
     top: 428px;
@@ -80,9 +76,23 @@
       text-align: center;
       margin-bottom: 1rem; }
     #pokedex main .nameAndMovesCtn li {
-      font-size: 1.2rem;
+      margin-bottom: .5rem;
+      font-size: 1.5rem;
       list-style-type: none;
-      font-family: 'BenchNine', sans-serif; }
+      font-family: 'BenchNine', sans-serif;
+      line-height: 1rem; }
+  #pokedex main .warningCtn {
+    display: none;
+    position: absolute;
+    width: 300px;
+    text-align: center;
+    z-index: 2;
+    top: 310px;
+    left: 548px; }
+    #pokedex main .warningCtn p {
+      background: white;
+      color: #c00c0c;
+      border-radius: 5px; }
   #pokedex main .searchCtn {
     padding: 1.2rem 0;
     background: #c00c0c;
@@ -103,14 +113,18 @@
       width: 50px; }
   #pokedex main .evolutionImgCtn {
     position: absolute;
-    top: 494px;
-    left: 621px;
-    display: flex; }
+    top: 434px;
+    left: 552px;
+    display: flex;
+    background: #fff;
+    border-radius: 5px; }
     #pokedex main .evolutionImgCtn > div {
-      height: 30px;
-      width: 40px;
-      background: greenyellow;
-      margin-right: 76px; }
+      height: 100px;
+      width: 110px; }
+      #pokedex main .evolutionImgCtn > div img {
+        cursor: pointer; }
+      #pokedex main .evolutionImgCtn > div:first-child {
+        margin-right: .3rem; }
   #pokedex footer {
     position: absolute;
     bottom: 0;

@@ -24,24 +24,22 @@
             <img src="img/pokedexpaint.png" alt="pokedex">
             <div class="pokemonImgCtn">
                 <div class="row">
-                    <div class="col">
-                        <div class="pokemonFrontImg">front</div>
-                        <div class="pokemonBackImg">back</div>
-                    </div>
-                    <div class="col">
-                        <h5>Type:</h5>
-                        <div class="types"></div>
-                    </div>
+                    <div class="pokemonFrontImg"></div>
+                    <div class="pokemonBackImg"></div>
+                </div>
+                <div class="row">
+                    <p class="typeHeading"></p>&nbsp;
+                    <div class="types"></div>
                 </div>
 
             </div>
             <div class="idBtnCtn">
-                <button title="Previous ID" class="btn btn-success idBtnStyle"><i class="fas fa-backward"></i></button>
-                <button title="Next ID" class="btn btn-warning idBtnStyle"><i class="fas fa-forward"></i></button>
+                <button id="prevId" title="Previous ID" class="btn btn-success idBtnStyle"><i class="fas fa-backward"></i></button>
+                <button id="nextId" title="Next ID" class="btn btn-warning idBtnStyle"><i class="fas fa-forward"></i></button>
             </div>
-            <div class="idScreenCtn">000</div>
+            <div class="idScreenCtn"></div>
             <div class="nameAndMovesCtn">
-                <h5 class="name">Name</h5>
+                <h5 class="name"></h5>
                 <ul>
                     <div class="row">
                         <li  class="col pokeMove"></li>
@@ -53,13 +51,16 @@
                     </div>
                 </ul>
             </div>
+            <div class="warningCtn">
+                    <p>Fetch error or invalid name/id!</p>
+            </div>
             <form class="searchCtn">
                 <input id="pokeinput" type="text" name="search" placeholder="Name/ID">
                 <button id="run" class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="evolutionImgCtn">
-                <div class="prevEvo"></div>
-                <div class="nextEvo"></div>
+                <div title="Previous evolution" class="prevEvo"></div>
+                <div title="Next evolution" class="nextEvo"></div>
             </div>
         </div>
     </main>

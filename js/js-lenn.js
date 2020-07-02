@@ -1,37 +1,172 @@
-// variables
+///// VARIABLES
+//// DOM elements
 const pokename = document.querySelector('.name');
 const frontimg = document.querySelector('.pokemonFrontImg');
 const backimg = document.querySelector('.pokemonBackImg');
-const run = document.getElementById('run');
-const id = document.querySelector('.idScreenCtn');
+const idCtn = document.querySelector('.idScreenCtn');
+const typeHeading = document.querySelector('.typeHeading');
 const pokeTypes = document.querySelector('.types');
-const pokemoves = document.querySelectorAll('.pokeMove')
+const pokemoves = document.querySelectorAll('.pokeMove');
+const waringMsg = document.querySelector('.warningCtn');
+const prevEvo = document.querySelector('.prevEvo');
+const nextEvo = document.querySelector('.nextEvo');
 
-run.addEventListener('click', (e)=>{
-    e.preventDefault();
-    let pokemon = document.getElementById('pokeinput').value.toLowerCase();
+//// Buttons to add event listener
+// Button to display pokemon
+const run = document.getElementById('run');
+// Button to display previous/next id
+const prevId = document.querySelector('#prevId');
+const nextId = document.querySelector('#nextId');
+
+////// FUNCTIONS
+//// Assist functions
+// Function to capitalize the first letter of string
+const capitalizeString = (string) => string.charAt(0).toUpperCase()+string.substring(1,string.length);
+// Function to clear the field
+const clearDisplay = () => {
+    idCtn.innerHTML = '';
+    pokename.innerHTML = '';
+    typeHeading.innerHTML = '';
+    pokeTypes.innerHTML = '';
+    pokemoves.forEach(item => item.innerHTML = '');
+    frontimg.style.background = 'none';
+    backimg.style.background = 'none';
+    prevEvo.innerHTML = '';
+    prevEvo.classList.remove('displayed');
+    nextEvo.innerHTML = '';
+    nextEvo.classList.remove('displayed');
+
+
+}
+
+//// Main functions
+// function to display pokemon
+const displayPokemon = (pokemon) => {
     let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     fetch(url)
         .then(response => response.json())
         .then((data) => {
-            id.innerHTML = data.id;
+            idCtn.innerHTML = data.id;
+            //// Fetching evolution chain id
+            fetch(`https://pokeapi.co/api/v2/pokemon-species/${data.id}/`)
+                .then(response2 => response2.json())
+                .then(data2 => {
+                    fetch(data2.evolution_chain.url)
+                        .then(response3 => response3.json())
+                        .then(data3 => {
+                            let path = data3.chain;
+                            let evolutionArr = [path.species.name];
+
+                            // Define a function to collect the names of all evolutions on this series
+                            const getSpecies = path => {
+                                while (path.evolves_to.length > 0) {
+                                    evolutionArr.push(path.evolves_to[0].species.name);
+                                    path = path.evolves_to[0];
+                                }
+                            }
+                            // Call function
+                            getSpecies(path);
+                            // Find position of the current pokemon in the series of evolutions
+                            let pos = evolutionArr.indexOf(data.name);
+                            // Variables to store the name of the previous/next evolution (if they exists)
+                            let prevEvolutionName = '', nextEvolutionName = '';
+                            // Check if there is a previous evolution
+                            if (pos-1 >= 0) {
+                                prevEvolutionName = evolutionArr[pos-1];
+                                // Fetch and display image of the previous evolution
+                                fetch(`https://pokeapi.co/api/v2/pokemon/${prevEvolutionName}`)
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        prevEvo.innerHTML = `<img src="${data.sprites.front_shiny}"/>`;
+                                        // Add click event to this image
+                                        document.querySelector('.prevEvo img').addEventListener('click', ()=>{
+                                            clearDisplay();
+                                            displayPokemon(prevEvolutionName);
+                                        })
+                                    })
+                            }
+
+                            // Check if there is a next evolution
+                            if (pos+1 < evolutionArr.length) {
+                                nextEvolutionName = evolutionArr[pos+1]
+                                // Fetch and display image of the next evolution
+                                fetch(`https://pokeapi.co/api/v2/pokemon/${nextEvolutionName}`)
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        nextEvo.innerHTML = `<img src="${data.sprites.front_shiny}"/>`;
+                                        // Add click event to this image
+                                        document.querySelector('.nextEvo img').addEventListener('click', ()=>{
+                                            clearDisplay();
+                                            displayPokemon(nextEvolutionName);
+                                        })
+                                    })
+                            }
+                        })
+                })
+
+            // Displaying all information concerning the current pokemon
             pokename.innerHTML = data.name.toUpperCase();
-            frontimg.innerHTML = `<img src=${data.sprites.front_shiny} alt='front' />`
-            backimg.innerHTML = `<img src=${data.sprites.back_shiny} alt='back' />`
-            for(let i = 0; i<data.types.length; i++){
-                pokeTypes.innerHTML += `<p>${data.types[i].type.name.toUpperCase()}</p>`
+            frontimg.style.background = `url(${data.sprites.front_shiny}) center no-repeat`;
+            frontimg.style.backgroundSize = 'contain';
+            backimg.style.background = `url(${data.sprites.back_shiny}) center no-repeat`;
+            backimg.style.backgroundSize = 'contain';
+            typeHeading.innerHTML = 'Type:';
+            for (let i = 0; i < data.types.length; i++) {
+                if (i === 0) {
+                    pokeTypes.innerHTML += `<p>${capitalizeString(data.types[i].type.name)}</p>`
+                } else {
+                    pokeTypes.innerHTML += `<p> - ${capitalizeString(data.types[i].type.name)}</p>`
+                }
             }
-            console.log(data);
-            console.log(data.types)
-            console.log(data.moves);
-            let randomMove = []; 
+            // Make an array storing maximum 4 random index values to display elements in array "data.moves"
+            let randomMove = [];
             for (let i = 0; randomMove.length < 4; i++) {
-                let num = Math.floor(Math.random()*data.moves.length);
+                let num = Math.floor(Math.random() * data.moves.length -1);
                 if (randomMove.indexOf(num) === -1) {
                     randomMove.push(num);
-                        pokemoves[i].innerHTML = data.moves[num].move.name.toUpperCase();
-                } 
+                    pokemoves[i].innerHTML = capitalizeString(data.moves[num].move.name);
+                }
             }
 
-        });
+        })
+        .catch(err => {
+            console.log(err);
+            waringMsg.style.display = 'block';
+            setTimeout(()=>{
+                waringMsg.style.display = 'none';
+            }, 3000);
+        })
+    ;
+}
+
+////// UI action
+//// Search button
+run.addEventListener('click', (e) => {
+    e.preventDefault();
+    let pokemon = document.getElementById('pokeinput').value.toLowerCase();
+    clearDisplay();
+    displayPokemon(pokemon);
+    document.getElementById('pokeinput').value = '';
 })
+
+
+//// Prev/next Id button
+prevId.addEventListener('click', () => {
+    let id = parseInt(idCtn.innerHTML);
+    if (id > 1) {
+        id--;
+    }
+    clearDisplay();
+    displayPokemon(id);
+})
+
+nextId.addEventListener('click', () => {
+    let id = parseInt(idCtn.innerHTML);
+    let totalNumberPokemon = 964;
+    if (id < totalNumberPokemon) {
+        id++;
+    }
+    clearDisplay();
+    displayPokemon(id);
+})
+
