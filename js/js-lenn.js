@@ -15,7 +15,7 @@ run.addEventListener('click', (e)=>{
         .then(response => response.json())
         .then((data) => {
             id.innerHTML = data.id;
-            pokename.innerHTML = data.name;
+            pokename.innerHTML = data.name.toUpperCase();
             frontimg.innerHTML = `<img src=${data.sprites.front_shiny} alt='front' />`
             backimg.innerHTML = `<img src=${data.sprites.back_shiny} alt='back' />`
             for(let i = 0; i<data.types.length; i++){
