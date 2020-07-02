@@ -60,7 +60,8 @@
       margin-bottom: 1rem; }
     #pokedex main .nameAndMovesCtn li {
       font-size: .8rem;
-      list-style-type: none; }
+      list-style-type: none;
+      font-family: 'Orbitron', sans-serif; }
   #pokedex footer {
     position: absolute;
     bottom: 0;
