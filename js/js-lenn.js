@@ -60,7 +60,10 @@ const displayPokemon = (pokemon) => {
                             // Define a function to collect the names of all evolutions on this series
                             const getSpecies = path => {
                                 while (path.evolves_to.length > 0) {
-                                    evolutionArr.push(path.evolves_to[0].species.name);
+                                    //evolutionArr.push(path.evolves_to[0].species.name);
+                                    for(let i = 0; i<path.evolves_to.length; i++){
+                                        evolutionArr.push(path.evolves_to[i].species.name);
+                                    }
                                     path = path.evolves_to[0];
                                 }
                             }
