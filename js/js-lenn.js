@@ -10,6 +10,7 @@ const pokemoves = document.querySelectorAll('.pokeMove');
 const waringMsg = document.querySelector('.warningCtn');
 const prevEvo = document.querySelector('.prevEvo');
 const nextEvo = document.querySelector('.nextEvo');
+const imgctn = document.getElementById('pokemontypecolor');
 
 //// Buttons to add event listener
 // Button to display pokemon
@@ -35,6 +36,7 @@ const clearDisplay = () => {
     prevEvo.classList.remove('displayed');
     nextEvo.innerHTML = '';
     nextEvo.classList.remove('displayed');
+    imgctn.style.backgroundColor = "#000"
 
 
 }
@@ -157,7 +159,7 @@ const displayPokemon = (pokemon) => {
                 }else if(data.types[0].type.name === "steel"){
                     document.getElementById('pokemontypecolor').style.backgroundColor = "#B8B8D0";
                 }else{
-                    document.getElementById('pokemontypecolor').style.backgroundColor = "#000000";
+                    document.getElementById('pokemontypecolor').style.backgroundColor = "#fff";
                 }
             }
 
