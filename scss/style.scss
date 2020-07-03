@@ -38,12 +38,12 @@
 
     .pokemonImgCtn {
       height: 140px;
-      width: 255px;
+      width: 256px;
       border-radius: 16px;
-      background: navajowhite;
+      background: #000000;
       position: absolute;
       top: 197px;
-      left: 170px;
+      left: 169px;
       display: grid;
       grid-template-rows: 4fr 1fr;
       .row {
