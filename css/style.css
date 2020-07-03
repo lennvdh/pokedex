@@ -114,17 +114,17 @@
   #pokedex main .evolutionImgCtn {
     position: absolute;
     top: 434px;
-    left: 552px;
-    display: flex;
-    background: #fff;
-    border-radius: 5px; }
+    left: 584px;
+    display: flex; }
     #pokedex main .evolutionImgCtn > div {
+      background: rgba(255, 255, 255, 0.9);
       height: 100px;
-      width: 110px; }
+      width: 110px;
+      box-shadow: inset -5px -5px 5px -5px rgba(0, 0, 0, 0.75), inset 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+      border-radius: 1rem;
+      margin: 0 2px; }
       #pokedex main .evolutionImgCtn > div img {
         cursor: pointer; }
-      #pokedex main .evolutionImgCtn > div:first-child {
-        margin-right: .3rem; }
   #pokedex footer {
     position: absolute;
     bottom: 0;
