@@ -165,13 +165,23 @@ const displayPokemon = (pokemon) => {
 
             // Make an array storing maximum 4 random index values to display elements in array "data.moves"
             let randomMove = [];
-            for (let i = 0; randomMove.length < 4; i++) {
-                let num = Math.floor(Math.random() * data.moves.length -1);
-                if (randomMove.indexOf(num) === -1) {
-                    randomMove.push(num);
-                    pokemoves[i].innerHTML = capitalizeString(data.moves[num].move.name);
+            if(data.moves.length > 4){
+                for (let i = 0; randomMove.length < 4; i++) {
+                    let num = Math.floor(Math.random() * data.moves.length);
+                    if (randomMove.indexOf(num) === -1) {
+                        randomMove.push(num);
+
+                    }
+                }
+                for(let i = 0; i < randomMove.length; i++){
+                    pokemoves[i].innerHTML = capitalizeString(data.moves[randomMove[i]].move.name);
+                }
+            }else{
+                for(let i =0; i < data.moves.length; i++){
+                    pokemoves[i].innerHTML = capitalizeString(data.moves[i].move.name);
                 }
             }
+            
 
         })
         .catch(err => {
