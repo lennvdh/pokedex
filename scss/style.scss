@@ -157,23 +157,23 @@
     .evolutionImgCtn {
       position: absolute;
       top: 434px;
-      left: 552px;
+      left: 584px;
       display: flex;
-      background: #fff;
-      border-radius: 5px;
+      //background: #fff;
+      //border-radius: 5px;
+      //box-shadow: 0 0 3px 3px #eee;
 
       &>div {
+        //border: 1px solid red;
+        background: rgba(255, 255, 255, 0.9);
         height: 100px;
         width: 110px;
-
-
+        box-shadow: inset -5px -5px 5px -5px rgba(0,0,0,0.75), inset 5px 5px 5px -5px rgba(0,0,0,0.75);
+        border-radius: 1rem;
+        margin: 0 2px;
 
         img {
-            cursor: pointer;
-        }
-
-        &:first-child {
-          margin-right: .3rem;
+          cursor: pointer;
         }
       }
 
